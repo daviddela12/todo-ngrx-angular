@@ -35,15 +35,3 @@ const selectFilterTodos = createSelector(
 export const TodoSelectors = {
   selectFilterTodos
 }
-
-/**
- * {
- *     console.log("entra pá");
- *       if(filter === "SHOW_PENDING") {
- *         return todos.find((todo) => todo.completed === false)
- *       } else {
- *         return todos.find((todo) => todo.completed === true)
- *       }
- *       return todos;
- *   }
- */
