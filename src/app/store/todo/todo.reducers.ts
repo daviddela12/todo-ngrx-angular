@@ -20,6 +20,11 @@ export const todoFeature = createFeature({
     on(TodoActions.changeVisibilityFilter, (state, {filter}) => ({
       ...state,
       visibilityFilter: filter
+    })),
+
+    on(TodoActions.changeStatusTodo, (state, {id}) => ({
+      ...state,
+      todos: state.todos.map((todo) => todo.id === id ? {...todo, completed: !todo.completed} : todo)
     }))
   )
 });

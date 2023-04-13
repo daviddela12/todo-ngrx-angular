@@ -5,6 +5,7 @@ export const TodoActions = createActionGroup({
   source: "[Todo Component]",
   events: {
     'Add Todo': props<{todo: Todo}>(),
-    'Change visibility filter': props<{filter: string}>()
+    'Change visibility filter': props<{filter: string}>(),
+    'Change Status Todo': props<{id: number}>()
   }
 })

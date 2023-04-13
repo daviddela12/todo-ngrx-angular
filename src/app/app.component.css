@@ -3,3 +3,6 @@ a {
   cursor: pointer;
   text-decoration: underline;
 }
+li.strikethrough {
+  text-decoration: line-through;
+}

@@ -25,7 +25,6 @@ export class AppComponent implements OnInit {
     this.todos$ = this.store.pipe(select(TodoSelectors.selectFilterTodos));
   }
 
-
   addTodo() {
     const newTodo: Todo = {
       id: Math.round(Math.random() * 10000) + 1,
@@ -38,6 +37,10 @@ export class AppComponent implements OnInit {
 
   filterTodos(filter: string) {
     this.store.dispatch(TodoActions.changeVisibilityFilter({filter}));
+  }
+
+  changeStatusTodo(id: number) {
+    this.store.dispatch(TodoActions.changeStatusTodo({id}));
   }
 
 }

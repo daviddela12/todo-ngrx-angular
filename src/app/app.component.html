@@ -2,7 +2,9 @@
 <button (click)="addTodo()">Add Todo</button>
 <h3>List of Todos</h3>
 <ul>
-  <li *ngFor="let todo of todos$ | async">{{todo.text}}</li>
+  <li *ngFor="let todo of todos$ | async"
+      (click)="changeStatusTodo(todo.id)"
+      [ngClass]="{'strikethrough': todo.completed === true}">{{todo.text}}</li>
 </ul>
 Filter todos:&nbsp;&nbsp;
 <a (click)="filterTodos('SHOW_ALL')">All</a>&nbsp;
