@@ -11,12 +11,10 @@ import {todoSelectors} from "../../store/todo/todo.selectors";
   styleUrls: ['./todos.component.css']
 })
 export class TodosComponent {
-
   todoInput: string = "";
-  todos$: Observable<Todo[]> = new Observable<Todo[]>();
+  todos$: Observable<Todo[]>;
 
-
-  constructor(private store:Store) {
+  constructor(private store: Store) {
     this.todos$ = this.store.pipe(select(todoSelectors.selectFilterTodos));
   }
 
