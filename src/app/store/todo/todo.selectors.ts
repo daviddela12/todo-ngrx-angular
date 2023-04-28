@@ -1,26 +1,18 @@
-import {createFeatureSelector, createSelector, select} from "@ngrx/store";
-import {todoFeature} from "./todo.reducers";
+import {createFeatureSelector, createSelector} from "@ngrx/store";
 import {Todo} from "./todo.model";
 import {TodoState} from "./todo.state";
-/**
- * SIN forFeature
-const todosStateSelector = createFeatureSelector<TodoState>("todoFeature")
 
-const todosSelector = createSelector(
-  todosStateSelector,
+const selectTodoState = createFeatureSelector<TodoState>("todo")
+
+const selectTodos = createSelector(
+  selectTodoState,
   (state) => state.todos
 );
 
-const filterVisibilitySelector = createSelector(
-  todosStateSelector,
+const selectVisibilityFilter = createSelector(
+  selectTodoState,
   (state) => state.visibilityFilter
 );
- **/
-const {
-  selectTodoState,
-  selectTodos,
-  selectVisibilityFilter
-} = todoFeature
 
 const selectFilterTodos = createSelector(
   selectTodos,

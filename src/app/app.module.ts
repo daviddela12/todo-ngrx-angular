@@ -4,10 +4,10 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { StoreModule } from '@ngrx/store';
 import {FormsModule} from "@angular/forms";
-import {TodosModule} from "./components/todos/todos.module";
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
 import { TodosComponent } from './components/todos/todos.component';
+import {AppReducers} from "./store";
 
 @NgModule({
   declarations: [
@@ -16,8 +16,7 @@ import { TodosComponent } from './components/todos/todos.component';
   ],
     imports: [
         BrowserModule,
-        TodosModule,
-        StoreModule.forRoot({}, {}),
+        StoreModule.forRoot(AppReducers, {}),
         FormsModule,
         StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production })
     ],
