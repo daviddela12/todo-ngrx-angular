@@ -1,17 +1,12 @@
 import {createFeature, createReducer, on} from "@ngrx/store";
-import {TodoState} from "./todo.state";
 import {TodoActions} from "./todo.actions";
-
-// 1 Initial State
-export const initialState: TodoState = {
-  todos: [],
-  visibilityFilter: "SHOW_ALL"
-}
+import {initialState} from "./todo.state";
 
 export const todoFeature = createFeature({
-  name: "todoFeature",
+  name: "todo",
   reducer: createReducer(
     initialState,
+
     on(TodoActions.addTodo, (state, {todo}) => ({
       ...state,
       todos: [...state.todos, todo]

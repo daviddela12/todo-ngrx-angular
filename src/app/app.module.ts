@@ -4,17 +4,19 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { StoreModule } from '@ngrx/store';
 import {FormsModule} from "@angular/forms";
-import {TodoModule} from "./store/todo/todo.module";
+import {TodosModule} from "./components/todos/todos.module";
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
+import { TodosComponent } from './components/todos/todos.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    TodosComponent
   ],
     imports: [
         BrowserModule,
-        TodoModule,
+        TodosModule,
         StoreModule.forRoot({}, {}),
         FormsModule,
         StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production })

@@ -1,12 +1,1 @@
-<input [(ngModel)]="todoInput" type="text">
-<button (click)="addTodo()">Add Todo</button>
-<h3>List of Todos</h3>
-<ul>
-  <li *ngFor="let todo of todos$ | async"
-      (click)="changeStatusTodo(todo.id)"
-      [ngClass]="{'strikethrough': todo.completed === true}">{{todo.text}}</li>
-</ul>
-Filter todos:&nbsp;&nbsp;
-<a (click)="filterTodos('SHOW_ALL')">All</a>&nbsp;
-<a (click)="filterTodos('SHOW_PENDING')">Pending</a>&nbsp;
-<a (click)="filterTodos('SHOW_COMPLETED')">Completed</a>
+<app-todos></app-todos>

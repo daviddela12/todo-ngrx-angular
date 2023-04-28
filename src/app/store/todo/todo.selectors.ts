@@ -1,4 +1,4 @@
-import {createFeatureSelector, createSelector} from "@ngrx/store";
+import {createFeatureSelector, createSelector, select} from "@ngrx/store";
 import {todoFeature} from "./todo.reducers";
 import {Todo} from "./todo.model";
 import {TodoState} from "./todo.state";
@@ -16,10 +16,15 @@ const filterVisibilitySelector = createSelector(
   (state) => state.visibilityFilter
 );
  **/
+const {
+  selectTodoState,
+  selectTodos,
+  selectVisibilityFilter
+} = todoFeature
 
 const selectFilterTodos = createSelector(
-  todoFeature.selectTodos,
-  todoFeature.selectVisibilityFilter,
+  selectTodos,
+  selectVisibilityFilter,
   (todos: Todo[], filter: string) => {
     switch (filter) {
       case "SHOW_PENDING":
@@ -32,6 +37,9 @@ const selectFilterTodos = createSelector(
   }
 );
 
-export const TodoSelectors = {
+export const todoSelectors = {
+  selectTodoState,
+  selectTodos,
+  selectVisibilityFilter,
   selectFilterTodos
 }
