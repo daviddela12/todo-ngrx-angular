@@ -20,13 +20,13 @@ export class TodosComponent {
   }
 
   addTodo() {
+    this.todoInput = "";
     const newTodo: Todo = {
       id: Math.round(Math.random() * 10000) + 1,
       text: this.todoInput,
       completed: false
     }
     this.store.dispatch(TodoActions.addTodo({todo: newTodo}));
-    this.todoInput = "";
   }
 
   filterTodos(filter: string) {
