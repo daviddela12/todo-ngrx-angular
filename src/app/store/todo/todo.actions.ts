@@ -4,6 +4,7 @@ import {Todo} from "./todo.model";
 export const TodoActions = createActionGroup({
   source: "[Todo Component]",
   events: {
+    'Load Todos': emptyProps(),
     'Add Todo': props<{todo: Todo}>(),
     'Change visibility filter': props<{filter: string}>(),
     'Change Status Todo': props<{id: number}>()

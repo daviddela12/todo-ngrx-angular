@@ -10,13 +10,17 @@ import {todoSelectors} from "../../store/todo/todo.selectors";
   templateUrl: './todos.component.html',
   styleUrls: ['./todos.component.css']
 })
-export class TodosComponent {
+export class TodosComponent implements OnInit {
 
   todoInput: string = "";
   todos$: Observable<Todo[]>;
 
   constructor(private store:Store) {
     this.todos$ = this.store.pipe(select(todoSelectors.selectFilterTodos));
+  }
+
+  ngOnInit(): void {
+    this.store.dispatch(TodoActions.loadTodos());
   }
 
   addTodo() {
@@ -36,4 +40,5 @@ export class TodosComponent {
   changeStatusTodo(id: number) {
     this.store.dispatch(TodoActions.changeStatusTodo({id}));
   }
+
 }
